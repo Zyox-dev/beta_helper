@@ -128,26 +128,22 @@
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        state.devMode = parsed.devMode || false;
         state.defaultState = parsed.defaultState || 'All India (Central)';
         state.language = parsed.language || 'English';
-        if (parsed.apiKey) state.apiKey = parsed.apiKey;
       } catch (e) {}
     }
+    state.devMode = false;
     updateSettingsUI();
   }
 
   function saveSettings() {
     state.defaultState = settingState.value;
     state.language = settingLanguage.value;
-    state.devMode = settingDevMode.checked;
-    state.apiKey = settingApiKey.value.trim() || state.apiKey;
+    state.devMode = false;
 
     localStorage.setItem('legal_ai_beta1_settings', JSON.stringify({
-      devMode: state.devMode,
       defaultState: state.defaultState,
-      language: state.language,
-      apiKey: state.apiKey
+      language: state.language
     }));
 
     updateSettingsUI();
@@ -158,17 +154,22 @@
   function updateSettingsUI() {
     settingState.value = state.defaultState;
     settingLanguage.value = state.language;
-    settingDevMode.checked = state.devMode;
-    settingApiKey.value = state.apiKey;
+    if (settingDevMode) {
+      settingDevMode.checked = false;
+      settingDevMode.disabled = true;
+    }
+    if (settingApiKey) {
+      settingApiKey.value = state.apiKey;
+      settingApiKey.disabled = true;
+      settingApiKey.readOnly = true;
+    }
 
     if (headerStateLabel) headerStateLabel.textContent = state.defaultState;
-    if (state.devMode) {
-      headerDevToggle.classList.add('active');
-      if (devStatusText) devStatusText.textContent = 'Dev: ON';
-    } else {
+    if (headerDevToggle) {
+      headerDevToggle.style.display = 'none';
       headerDevToggle.classList.remove('active');
-      if (devStatusText) devStatusText.textContent = 'Dev: OFF';
     }
+    if (devStatusText) devStatusText.textContent = 'Dev: OFF';
   }
 
   function setupEventListeners() {
@@ -188,12 +189,6 @@
     newChatBtn.addEventListener('click', () => {
       closeMobileSidebar();
       createNewChat();
-    });
-
-    headerDevToggle.addEventListener('click', () => {
-      state.devMode = !state.devMode;
-      settingDevMode.checked = state.devMode;
-      saveSettings();
     });
 
     document.querySelectorAll('.starter-card').forEach(card => {
