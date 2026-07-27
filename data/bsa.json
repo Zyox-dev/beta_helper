@@ -1,0 +1,44 @@
+[
+  {
+    "id": "BSA-1",
+    "act": "Bharatiya Sakshya Adhiniyam, 2023",
+    "act_short": "BSA",
+    "act_year": 2023,
+    "jurisdiction": "Central",
+    "unit_type": "section",
+    "number": "1",
+    "chapter": "Chapter I - Preliminary",
+    "title": "Short title, application and commencement",
+    "text": "Applies to all judicial proceedings in or before any Court.",
+    "status": "in force",
+    "source_url": "https://www.indiacode.nic.in/handle/123456789/20050"
+  },
+  {
+    "id": "BSA-22",
+    "act": "Bharatiya Sakshya Adhiniyam, 2023",
+    "act_short": "BSA",
+    "act_year": 2023,
+    "jurisdiction": "Central",
+    "unit_type": "section",
+    "number": "22",
+    "chapter": "Chapter II - Relevancy of Facts",
+    "title": "Inadmissibility of confessions made to police officer",
+    "text": "No confession made to a police officer shall be proved as against a person accused of any offence unless made in the immediate presence of a Magistrate.",
+    "status": "in force",
+    "source_url": "https://www.indiacode.nic.in/handle/123456789/20050"
+  },
+  {
+    "id": "BSA-61",
+    "act": "Bharatiya Sakshya Adhiniyam, 2023",
+    "act_short": "BSA",
+    "act_year": 2023,
+    "jurisdiction": "Central",
+    "unit_type": "section",
+    "number": "61",
+    "chapter": "Chapter V - Documentary Evidence",
+    "title": "Admissibility of electronic or digital record",
+    "text": "Electronic or digital records shall not be denied admissibility in evidence on the ground that it is an electronic or digital record.",
+    "status": "in force",
+    "source_url": "https://www.indiacode.nic.in/handle/123456789/20050"
+  }
+]

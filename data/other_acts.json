@@ -1,0 +1,30 @@
+[
+  {
+    "id": "MVA-207",
+    "act": "Motor Vehicles Act, 1988",
+    "act_short": "MVA",
+    "act_year": 1988,
+    "jurisdiction": "Central",
+    "unit_type": "section",
+    "number": "207",
+    "chapter": "Chapter XIII - Offences, Penalties and Procedure",
+    "title": "Power to detain vehicle without permit or registration",
+    "text": "Any police officer or authorised officer may detain a motor vehicle. Seizure receipt must be provided to the owner/driver immediately.",
+    "status": "in force",
+    "source_url": "https://www.indiacode.nic.in/handle/123456789/1798"
+  },
+  {
+    "id": "NIA-138",
+    "act": "Negotiable Instruments Act, 1881",
+    "act_short": "NIA",
+    "act_year": 1881,
+    "jurisdiction": "Central",
+    "unit_type": "section",
+    "number": "138",
+    "chapter": "Chapter XVII - Penalties in Case of Dishonour of Cheques",
+    "title": "Dishonour of cheque for insufficiency of funds",
+    "text": "Where a cheque drawn for discharge of debt is returned unpaid by bank, drawer is punishable with imprisonment up to 2 years or fine up to double the cheque amount.",
+    "status": "in force",
+    "source_url": "https://www.indiacode.nic.in/handle/123456789/2188"
+  }
+]
