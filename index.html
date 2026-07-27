@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Legal AI Assistant — Grounded in Official Indian Law</title>
+  <meta name="description" content="100% Mobile Friendly AI legal assistant grounded in Constitution of India, BNS, BNSS, BSA, IT Act, MV Act with SVG icons and verified citations.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+  <!-- LANDING PAGE VIEW -->
+  <div id="landingView" class="view active">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> Grounded RAG Legal AI • Beta 1
+      </div>
+      
+      <div class="hero-logo-box">
+        <img src="logo.svg" alt="Legal AI Main Logo" class="hero-logo-img">
+      </div>
+
+      <h1 class="hero-title">Legal AI Assistant</h1>
+      <p class="hero-subtitle">Know your rights & legal protection.</p>
+      <p class="hero-tagline">Grounded in official Indian statutes: Constitution of India, BNS (2023), BNSS (2023), BSA (2023), IT Act, MV Act & NI Act.</p>
+      
+      <div class="hero-actions">
+        <button id="startChatBtn" class="btn btn-primary btn-large">
+          <span>Start Chat</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="hero-features">
+        <div class="feature-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Grounded Rights Protection</span>
+        </div>
+        <div class="feature-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Official Statute Texts</span>
+        </div>
+        <div class="feature-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          <span>Gemini Flash Synthesis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT APPLICATION VIEW -->
+  <div id="chatView" class="view">
+    <!-- Top Header Navigation (Mobile Optimized) -->
+    <header class="app-header">
+      <div class="header-left">
+        <button id="toggleSidebarBtn" class="icon-btn" title="Toggle Sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        
+        <div class="app-brand" id="brandHomeBtn">
+          <img src="logo.svg" alt="Legal AI Logo" class="brand-logo-img">
+          <span class="brand-title">Legal AI</span>
+          <span class="brand-beta-pill">Beta 1</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="header-pill hide-mobile" id="statePill">
+          <span class="pill-dot"></span>
+          <span id="headerStateLabel">All India</span>
+        </div>
+        
+        <button id="headerDevToggle" class="dev-mode-pill" title="Toggle Developer Mode">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span id="devStatusText" class="hide-mobile">Dev: OFF</span>
+        </button>
+
+        <button id="openSettingsBtn" class="icon-btn" title="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-workspace">
+      <!-- Mobile Backdrop Overlay -->
+      <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+      <!-- Conversation History Sidebar -->
+      <aside id="sidebar" class="app-sidebar">
+        <div class="sidebar-top">
+          <button id="newChatBtn" class="btn btn-secondary btn-full">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>New Conversation</span>
+          </button>
+        </div>
+
+        <div class="sidebar-section-label">Recent Conversations</div>
+        <div id="historyList" class="history-list">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="db-status-box">
+            <div class="db-status-title">Preloaded Database</div>
+            <div class="db-tags">
+              <span class="db-tag">Constitution</span>
+              <span class="db-tag">BNS (2023)</span>
+              <span class="db-tag">BNSS (2023)</span>
+              <span class="db-tag">BSA (2023)</span>
+              <span class="db-tag">MV Act</span>
+              <span class="db-tag">NI Act</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Chat Area -->
+      <main class="chat-container">
+        <!-- Messages Scroll Container -->
+        <div id="messagesList" class="messages-list">
+          <!-- Empty State -->
+          <div id="emptyChatState" class="empty-state">
+            <div class="empty-logo-box">
+              <img src="logo.svg" alt="Legal AI Icon" class="empty-logo-img">
+            </div>
+            <h2>Ask your legal question</h2>
+            <p>Get instant answers grounded in official Indian law with verified citations.</p>
+            
+            <div class="starter-suggestions">
+              <button class="starter-card" data-query="If police are using fake allegations on me, what law can I use to protect myself?">
+                <div class="starter-icon-svg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="starter-text">"Police using fake allegations against me"</span>
+              </button>
+              <button class="starter-card" data-query="The police are forcing me to be silent. What can I do under the law?">
+                <div class="starter-icon-svg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <span class="starter-text">"Police forcing me to be silent"</span>
+              </button>
+              <button class="starter-card" data-query="The police won't write my FIR. What can I do under the law?">
+                <div class="starter-icon-svg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <span class="starter-text">"Police won't write my FIR"</span>
+              </button>
+              <button class="starter-card" data-query="Police took my bike keys during a traffic check. What can I do?">
+                <div class="starter-icon-svg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A2 2 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                </div>
+                <span class="starter-text">"Police took my bike keys"</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating White Mobile Chat Input Footer -->
+        <div class="chat-input-wrapper">
+          <form id="chatForm" class="chat-form">
+            <textarea id="userInput" placeholder="Ask your legal question..." rows="1"></textarea>
+            <button type="submit" id="sendBtn" class="btn btn-send" title="Send message">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+          <div class="input-disclaimer">
+            Legal AI Beta 1 — Grounded in official Indian statutes + Gemini Flash AI.
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- STATUTE DETAIL & BROWSER DRAWER -->
+  <div id="statuteDrawer" class="drawer-overlay">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span class="drawer-badge" id="drawerActBadge">BNSS</span>
+          <h3 id="drawerTitle">Section Title</h3>
+        </div>
+        <button id="closeDrawerBtn" class="icon-btn">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-search-box">
+          <input type="text" id="drawerSearchInput" placeholder="Search other sections or articles..." class="form-input" style="width:100%;">
+          <div id="drawerSearchResults" class="drawer-search-results"></div>
+        </div>
+
+        <div class="drawer-meta-row">
+          <div class="meta-item"><span class="meta-label">Act:</span> <span id="drawerActName">Bharatiya Nagarik Suraksha Sanhita</span></div>
+          <div class="meta-item"><span class="meta-label">Chapter:</span> <span id="drawerChapter">Chapter V</span></div>
+          <div class="meta-item"><span class="meta-label">Unit Type:</span> <span id="drawerUnitType">Section</span></div>
+          <div class="meta-item"><span class="meta-label">Status:</span> <span class="status-green" id="drawerStatus">in force</span></div>
+        </div>
+
+        <div class="drawer-section">
+          <h4>Official Statute Text</h4>
+          <div id="drawerText" class="statute-text-box"></div>
+        </div>
+
+        <div class="drawer-footer">
+          <a id="drawerSourceUrl" href="#" target="_blank" rel="noopener" class="btn btn-outline">
+            <span>View on India Code</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settingsModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Settings</h3>
+        <button id="closeSettingsBtn" class="icon-btn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="setting-row">
+          <div class="setting-info">
+            <label for="settingState">Default Jurisdiction</label>
+            <p>Select jurisdiction for legal context</p>
+          </div>
+          <select id="settingState" class="form-select">
+            <option value="All India (Central)" selected>All India (Central)</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Delhi (NCT)">Delhi (NCT)</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label for="settingLanguage">Language</label>
+            <p>Interface & response language</p>
+          </div>
+          <select id="settingLanguage" class="form-select">
+            <option value="English" selected>English</option>
+            <option value="Hindi">Hindi (हिंदी)</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label for="settingDevMode">Developer Debug Mode</label>
+            <p>Show real-time retrieval list and confidence metrics for RAG debugging</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="settingDevMode">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label for="settingApiKey">Gemini API Key</label>
+            <p>Configured API key for Gemini Flash synthesis</p>
+          </div>
+          <input type="password" id="settingApiKey" class="form-input" placeholder="AQ.Ab8RN6L...">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="saveSettingsBtn" class="btn btn-primary">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
